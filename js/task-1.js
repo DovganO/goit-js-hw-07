@@ -15,11 +15,20 @@ const itemEl = document.querySelectorAll('.item');
 
 console.log(`В списке ${itemEl.length} категории.`);
 
-const categoriesArray = [...itemEl]
+itemEl.forEach(element => {
+  const title = element.children[0].innerHTML;
+  const itemsLength = element.children[1].children.length;
+
+  console.log(`
+  Категория: ${title}
+  Количество элементов: ${itemsLength}`);
+});
+
+/* const categoriesArray = [...itemEl]
   .map(
     element => `Категория: ${element.children[0].textContent}
 Количество элементов: ${element.children[1].children.length}`,
   )
   .join('\n');
 
-console.log(categoriesArray);
+console.log(categoriesArray); */
