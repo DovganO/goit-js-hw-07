@@ -11,16 +11,20 @@
 Количество элементов: 4 
 */
 
-const categoriesUl = Array.from(
-  document.querySelectorAll('ul#categories li.item'),
-);
-console.log(`В списке ${categoriesUl.length} категории`);
+const itemEl = document.querySelectorAll('.item');
 
-const items = document.querySelectorAll('.item');
-Array.prototype.forEach.call(items, element => {
-  const title = element.querySelector('h2').innerHTML;
-  const itemsLength = element.querySelectorAll('li').length;
-  console.log(`
-    Категория: ${title} 
-    Количество элементов: ${itemsLength}`);
-});
+console.log(`В списке ${itemEl.length} категории.`);
+
+const category = array => {
+  array.forEach(element => {
+    const title = element.querySelector('h2');
+
+    const itemEl = element.querySelectorAll('li');
+
+    const message = `
+     Категория: ${title.textContent}
+     Количество элементов: ${itemEl.length}`;
+    console.log(message);
+  });
+};
+category(itemEl);
